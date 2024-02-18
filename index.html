@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Amogus Platformer Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #amogus {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: hoverAnimation 2s infinite alternate;
+        }
+
+        #description {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            top: 50%;
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        #downloadButton {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        @keyframes hoverAnimation {
+            0% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <video id="background-video" autoplay muted loop>
+        <!-- Replace the placeholder video link with your actual video file -->
+        <source src="amongus_bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <img id="amogus" src="amongus.png" alt="Among Us Character">
+    <div id="description">THE AMOGUS PLATFORMER GAME</div>
+    <button id="downloadButton" onclick="redirectToGoogleDrive()">Download Files</button>
+
+    <script>
+        document.addEventListener('mousemove', moveAmogus);
+
+        function moveAmogus(event) {
+            var amogus = document.getElementById('amongus');
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+
+            amogus.style.left = mouseX + '10px';
+            amogus.style.top = mouseY + '10px';
+        }
+
+        function redirectToGoogleDrive() {
+            // Create an anchor element
+            var link = document.createElement('a');
+            // Set the href attribute to your actual Google Drive link
+            link.href = 'https://t.me/hey_download_it_here'
+             // Open the link in a new tab
+            link.target = '_blank';
+            // Trigger a click event on the anchor element
+            link.click();
+        }
+    </script>
+</body>
+</html>
